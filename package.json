@@ -1,0 +1,28 @@
+{
+  "name": "the-mom-bot",
+  "version": "1.0.0",
+  "description": "Provides encouragement, words of wisdom, and warns about bad word usage to those who follow her.",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chznbaum/the-mom-bot.git"
+  },
+  "keywords": [
+    "bot",
+    "twitter",
+    "mom",
+    "mother"
+  ],
+  "author": "Chazona Baum",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chznbaum/the-mom-bot/issues"
+  },
+  "homepage": "https://github.com/chznbaum/the-mom-bot#readme",
+  "dependencies": {
+    "twit": "^2.2.5"
+  }
+}
