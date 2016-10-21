@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/chznbaum/the-mom-bot#readme",
   "dependencies": {
+    "badwords": "^1.0.0",
     "twit": "^2.2.5"
   }
 }
