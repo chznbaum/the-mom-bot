@@ -20,7 +20,7 @@ To install this project to make your own Twitter Bot:
    	 access_token_secret:		'...'
     }
     ```
-    
+
 8. Because the `config.js` file has your authentication keys within it, make sure it is in your `.gitignore` file. This can be done from your terminal like this:
 
     ```bash
@@ -36,6 +36,7 @@ To install this project to make your own Twitter Bot:
     ```
 
 into your terminal and following the prompts.
+
 12. Connect your directory with your Heroku app:
 
     ```bash
