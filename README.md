@@ -38,11 +38,10 @@ To install this project to make your own Twitter Bot:
 12. Connect your directory with your Heroku app:
 
     ```bash
-    git init
     heroku git:remote -a YOUR-APP-NAME
     ```
 
-13. Deploy your application to Heroku:
+13. Prior to deploying your application to Heroku, remove `config.js` from your `.gitignore` file. This is temporary so your app will have access to those variables. You will include it again in your `.gitignore` file after completing this step. Deploy your application to Heroku:
 
     ```bash
     git add .
