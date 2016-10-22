@@ -1,5 +1,6 @@
 var Twit = require('twit'); // Include Twit Package
-var config = require('./config'); // Include authentication credentials
+// Uncomment below to test on your local system
+// var config = require('./config'); // Include authentication credentials
 var bot_name = 'Mom Bot';
 var bot_screen_name = 'the_mother_bot';
 var bot_owner_name = 'otherconsolelog';
