@@ -8,8 +8,8 @@ To install this project to make your own Twitter Bot:
 2. From your forked repository, clone or download the the repository to your local system.
 3. Go to [Twitter](https://twitter.com) and create a separate Twitter account for your bot. You will need to include a mobile phone number on this account, but you can remove the number after completing these installation steps.
 4. Go to [Twitter Dev](https://dev.twitter.com) and click on "Manage Your Apps" (in the footer). Sign in as your bot and click "Create New App".
-5. Enter a name and description for your bot, as well as a website, which can be a link to your bot repository on GitHub. Read the Twitter Developer Agreement and check it off, then click "Create your Twitter application".
-6. When your Twitter app pulls up, switch to the "Keys and Access Tokens" tab. Make note of the Consumer Key (API Key) and Consumer Secret (API Secret). Under "Your Access Token", click to generate your Access Token and Access Token Secret. If your bot is ever compromised, you will want to regenerate these keys as well as the Consumer Key and Secret.
+5. Enter a name and description for your bot, as well as a website, which can be a link to your bot repository on GitHub. Read the Twitter Developer Agreement and check it off, then click "Create your Twitter application". ![Create an Application](./images/create_an_application.jpg)
+6. When your Twitter app pulls up, switch to the "Keys and Access Tokens" tab. Make note of the Consumer Key (API Key) and Consumer Secret (API Secret). Under "Your Access Token", click to generate your Access Token and Access Token Secret. If your bot is ever compromised, you will want to regenerate these keys as well as the Consumer Key and Secret. ![Keys and Access Tokens](./images/keys_and_access_tab.jpg)
 7. Create a `config.js` file in the root of this project's directory. Insert your bot account's Twitter API keys like this:
 
     ```javascript
