@@ -77,3 +77,42 @@ To use the existing bot, a user can simply follow [Mom Bot](https://twitter.com/
 From there, Mom Bot will scan tweets in the stream for use of bad words. If a tweet contains a bad word, Mom Bot will respond with an @reply to the tweeter.
 
 Mom Bot will also scan for @replies directed at Mom Bot. If a user tweets an @reply that includes a sad word, Mom Bot will tweet an @reply to the user to cheer them up. If a user tweets an @reply that includes a proud or happy word, Mom Bot will tweet an @reply to the user to express her pride in the user.
+
+### Using a Custom Bot
+Once your bot is installed, you can dig into the code to add or change functionality. This bot uses the `twit` NPM package to manipulate tweets and streams. Be sure to review the [documentation](https://github.com/ttezel/twit) for that project prior to making substantial changes.
+
+## Contributing
+
+## Credits
+* Created by [Chazona Baum](https://github.com/chznbaum) as a personal project.
+* Uses the [twit NPM package](https://www.npmjs.com/package/twit) to maniuplate tweets and streams.
+* Uses the [badwords NPM package](https://npmjs.com/package/badwords) to provide its list of "bad words" (profanity) in English.
+* Created after viewing the [Twitter Bot Tutorial Series](https://www.youtube.com/playlist?list=PLRqwX-V7Uu6atTSxoRiVnSuOn6JHnq2yV) provided by [Daniel Shiffman](http://shiffman.net). His Coding Rainbow series is so many shades of amazing. You should watch his YouTube videos and contribute on [Patreon](https://www.patreon.com/codingrainbow).
+
+## License
+MIT License
+
+Copyright (c) 2016 Chazona Baum [chazona@chazonabaum.com](mailto:chazona@chazonabaum.com)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+## Changelog
+
+### 1.0.0
+* Initial release
