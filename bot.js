@@ -116,10 +116,10 @@ for (k = 0; k < bad_words_list.length; k++) {
 }
 // Replace below with var T = new Twit(config); to test locally
 var T = new Twit(module.exports = {
-	consumer_key: CONSUMER_KEY,
-	consumer_secret: CONSUMER_SECRET,
-	access_token: ACCESS_TOKEN,
-	access_token_secret: ACCESS_TOKEN_SECRET
+	consumer_key: process.env.CONSUMER_KEY,
+	consumer_secret: process.env.CONSUMER_SECRET,
+	access_token: process.env.ACCESS_TOKEN,
+	access_token_secret: process.env.ACCESS_TOKEN_SECRET
 });
 var stream = T.stream('user'); // Setting up a user stream
 stream.on('tweet', tweetEvent); // Anytime a tweet enters the stream, run tweetEvent
