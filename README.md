@@ -11,6 +11,7 @@ To install this project to make your own Twitter Bot:
 5. Enter a name and description for your bot, as well as a website, which can be a link to your bot repository on GitHub. Read the Twitter Developer Agreement and check it off, then click "Create your Twitter application".
 6. When your Twitter app pulls up, switch to the "Keys and Access Tokens" tab. Make note of the Consumer Key (API Key) and Consumer Secret (API Secret). Under "Your Access Token", click to generate your Access Token and Access Token Secret. If your bot is ever compromised, you will want to regenerate these keys as well as the Consumer Key and Secret.
 7. Create a `config.js` file in the root of this project's directory. Insert your bot account's Twitter API keys like this:
+
     ```javascript
     module.exports = {
    	 consumer_key:				'...',
@@ -19,28 +20,37 @@ To install this project to make your own Twitter Bot:
    	 access_token_secret:		'...'
     }
     ```
+    
 8. Because the `config.js` file has your authentication keys within it, make sure it is in your `.gitignore` file. This can be done from your terminal like this:
+
     ```bash
     echo config.js >> .gitignore
     ```
+
 9. In the `bot.js` file, change the `bot_name` variable value to your bot's name (like Mom Bot), the `bot_screen_name` variable value to your bot's Twitter handle, and the `bot_owner_name` variable value to your own primary Twitter handle.
 10. Create a [Heroku](https://heroku.com) account if you don't already have one. In your dashboard, create a new app, calling it whatever you like.
 11. In your terminal, download the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line) if you haven't already. Log in to your account by entering:
+
     ```bash
     heroku login
     ```
+
 into your terminal and following the prompts.
 12. Connect your directory with your Heroku app:
+
     ```bash
     git init
     heroku git:remote -a YOUR-APP-NAME
     ```
+
 13. Deploy your application to Heroku:
+
     ```bash
     git add .
     git commit -am "add project files"
     git push heroku master
     ```
+
 
 
 ## Use
