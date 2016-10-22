@@ -120,7 +120,7 @@ var T = new Twit(module.exports = {
 	consumer_secret: CONSUMER_SECRET,
 	access_token: ACCESS_TOKEN,
 	access_token_secret: ACCESS_TOKEN_SECRET
-}});
+});
 var stream = T.stream('user'); // Setting up a user stream
 stream.on('tweet', tweetEvent); // Anytime a tweet enters the stream, run tweetEvent
 stream.on('follow', followed); // Anytime a user follows Bot, run followed
