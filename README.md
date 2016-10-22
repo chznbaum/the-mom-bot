@@ -50,7 +50,24 @@ To install this project to make your own Twitter Bot:
     git push heroku master
     ```
 
-14. 
+14. By default, Heroku apps use [web dynos](https://devcenter.heroku.com/articles/dynos). A Procfile has been included to instruct a worker dyno to be used to run your app instead. As an extra precaution, you can correct the dynos used in your terminal like this:
+
+    ```bash
+    heroku ps:scale web=0 worker=1
+    ```
+
+15. You may need to restart your worker dyno in order to get your app up and running. Do that like this:
+
+    ```bash
+    heroku restart worker.1
+    ```
+
+16. A few additional tools to check on your app:
+
+    ```bash
+    heroku ps // Checks the status of your dynos
+    heroku logs // Shows your app console, any errors and shutdowns/restarts
+    ```
 
 ## Use
 
