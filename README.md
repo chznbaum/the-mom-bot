@@ -83,11 +83,25 @@ Once your bot is installed, you can dig into the code to add or change functiona
 
 ## Contributing
 
+### If You're Not Sure How to Do It
+No worries. You can still help out by:
+* Pointing out bugs/errors.
+* Recommending cool features.
+
+For either of these options, please create an issue so it can be addressed. New to GitHub issues? They have a pretty handy [guide](https://guides.github.com/features/issues/) you can use to familiarize yourself with them.
+
+### If You Can Make the Change
+Simply:
+* Fork the repository
+* Make your suggested change
+* Make sure the code style looks similar to the existing code
+* Create a pull request
+
 ## Credits
 * Created by [Chazona Baum](https://github.com/chznbaum) as a personal project.
 * Uses the [twit NPM package](https://www.npmjs.com/package/twit) to maniuplate tweets and streams.
 * Uses the [badwords NPM package](https://npmjs.com/package/badwords) to provide its list of "bad words" (profanity) in English.
-* Created after viewing the [Twitter Bot Tutorial Series](https://www.youtube.com/playlist?list=PLRqwX-V7Uu6atTSxoRiVnSuOn6JHnq2yV) provided by [Daniel Shiffman](http://shiffman.net). His Coding Rainbow series is so many shades of amazing. You should watch his YouTube videos and contribute on [Patreon](https://www.patreon.com/codingrainbow).
+* Created after viewing the [Twitter Bot Tutorial Series](https://www.youtube.com/playlist?list=PLRqwX-V7Uu6atTSxoRiVnSuOn6JHnq2yV) provided by [Daniel Shiffman](http://shiffman.net). His Coding Rainbow series is so many shades of amazing. You should watch his [YouTube videos](https://www.youtube.com/channel/UCvjgXvBlbQiydffZU7m1_aw) and contribute on [Patreon](https://www.patreon.com/codingrainbow).
 
 ## License
 MIT License
