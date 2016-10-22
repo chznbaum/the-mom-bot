@@ -29,13 +29,11 @@ To install this project to make your own Twitter Bot:
 
 9. In the `bot.js` file, change the `bot_name` variable value to your bot's name (like Mom Bot), the `bot_screen_name` variable value to your bot's Twitter handle, and the `bot_owner_name` variable value to your own primary Twitter handle.
 10. Create a [Heroku](https://heroku.com) account if you don't already have one. In your dashboard, create a new app, calling it whatever you like.
-11. In your terminal, download the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line) if you haven't already. Log in to your account by entering:
+11. In your terminal, download the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line) if you haven't already. Log in to your account by entering the following into your terminal and following the prompts:
 
     ```bash
     heroku login
     ```
-
-into your terminal and following the prompts.
 
 12. Connect your directory with your Heroku app:
 
