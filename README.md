@@ -10,7 +10,7 @@ To install this project to make your own Twitter Bot:
 4. Go to [Twitter Dev](https://dev.twitter.com) and click on "Manage Your Apps" (in the footer). Sign in as your bot and click "Create New App".
 5. Enter a name and description for your bot, as well as a website, which can be a link to your bot repository on GitHub. Read the Twitter Developer Agreement and check it off, then click "Create your Twitter application". ![Create an Application](./images/create_an_application.jpg)
 6. When your Twitter app pulls up, switch to the "Keys and Access Tokens" tab. Make note of the Consumer Key (API Key) and Consumer Secret (API Secret). Under "Your Access Token", click to generate your Access Token and Access Token Secret. If your bot is ever compromised, you will want to regenerate these keys as well as the Consumer Key and Secret. ![Keys and Access Tokens](./images/keys_and_access_tab.jpg)
-7. Create a `config.js` file in the root of this project's directory. Insert your bot account's Twitter API keys like this:
+7. Create a `config.js` file in the root of this project's directory. This will allow you to test your project locally. In the `bot.js` file, there is a section to uncomment and one to replace if you wish to test it locally. Insert your bot account's Twitter API keys like this:
 
     ```javascript
     module.exports = {
@@ -41,12 +41,18 @@ To install this project to make your own Twitter Bot:
     heroku git:remote -a YOUR-APP-NAME
     ```
 
-13. Prior to deploying your application to Heroku, remove `config.js` from your `.gitignore` file. This is temporary so your app will have access to those variables. You will include it again in your `.gitignore` file after completing this step. Deploy your application to Heroku:
+13. Deploy your application to Heroku:
 
     ```bash
     git add .
     git commit -am "add project files"
     git push heroku master
+    ```
+
+14. Include your authentication variables as environmental variables in your Heroku installation. You can do this in the terminal like this:
+
+    ```bash
+    heroku config:set CONSUMER_KEY=... CONSUMER_SECRET=... ACCESS_TOKEN=... ACCESS_TOKEN_SECRET=...
     ```
 
 14. By default, Heroku apps use [web dynos](https://devcenter.heroku.com/articles/dynos). A Procfile has been included to instruct a worker dyno to be used to run your app instead. As an extra precaution, you can correct the dynos used in your terminal like this:
