@@ -114,7 +114,13 @@ var bad_words_list = require('badwords/array'); // Include Bad Words package
 for (k = 0; k < bad_words_list.length; k++) {
 	bad_words_list[k] = bad_words_list[k].toLowerCase(); // Transform Bad Words list to all lowercase
 }
-var T = new Twit(config);
+// Replace below with var T = new Twit(config); to test locally
+var T = new Twit(module.exports = {
+	consumer_key: CONSUMER_KEY,
+	consumer_secret: CONSUMER_SECRET,
+	access_token: ACCESS_TOKEN,
+	access_token_secret: ACCESS_TOKEN_SECRET
+}});
 var stream = T.stream('user'); // Setting up a user stream
 stream.on('tweet', tweetEvent); // Anytime a tweet enters the stream, run tweetEvent
 stream.on('follow', followed); // Anytime a user follows Bot, run followed
