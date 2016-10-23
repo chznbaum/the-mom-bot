@@ -1,3 +1,4 @@
+console.log('The bot is starting...');
 var Twit = require('twit'); // Include Twit Package
 // Uncomment below to test on your local system
 // var config = require('./config'); // Include authentication credentials
@@ -124,16 +125,19 @@ var T = new Twit(module.exports = {
 var stream = T.stream('user'); // Setting up a user stream
 stream.on('tweet', tweetEvent); // Anytime a tweet enters the stream, run tweetEvent
 stream.on('follow', followed); // Anytime a user follows Bot, run followed
+console.log('Entering the stream.');
 function tweetEvent(eventMsg) { // Function to run on each tweet in the stream
 	var from = eventMsg.user.screen_name; // Who sent the tweet
 	var text = eventMsg.text; // Message of the tweet
 	var reply_to = eventMsg.in_reply_to_screen_name; // Who tweet was @reply to
 	if (from !== bot_screen_name) { // If Bot didn't send the tweet
+		console.log('Bot received a tweet.');
 		text = text.replace(/[^a-zA-Z\s]/gi, "").toLowerCase(); // Remove non-letter characters and transform to lowercase
 		var tweet_array = text.split(' '); // Create an array of each word in the tweet
 		for (var i = 0; i < tweet_array.length; i++) { // For each word in the tweet
 			if (bad_words_list.indexOf(tweet_array[i]) != -1) { // If the word is included in bad words list
 				var disappointed_text = randomSaying(disappointed_bot_list);
+				console.log('That tweet had a bad word!');
 				tweetIt('@' + from + ' ' + disappointed_text); // Bot tweets her disappointment
 			}
 		}
@@ -141,6 +145,7 @@ function tweetEvent(eventMsg) { // Function to run on each tweet in the stream
 			for (var j = 0; j < unfollow_words_list.length; j++) { // For each word in the unfollow list
 				if (text.indexOf(unfollow_words_list[j]) != -1) { // If an unfollow word is in the tweet
 					var unfollow_text = randomSaying(unfollow_bot_list);
+					console.log('Someone wanted to unfollow.');
 					tweetIt('@' + from + ' ' + unfollow_text); // Tweet an unfollow response
 					T.post('friendships/destroy', { screen_name: from }, function(err, data, response) { // Unfollow the user
 						if (err) { // If error results
@@ -152,12 +157,15 @@ function tweetEvent(eventMsg) { // Function to run on each tweet in the stream
 			}
 			for (var l = 0; l < tweet_array.length; l++) { // For each word in the tweet
 				if ('stop'.indexOf(tweet_array[i]) != -1) { // If 'stop' is in the tweet
+					console.log('Someone\'s having a problem.');
 					tweetIt('@' + from + ' ' + bot_name + ' seems to be upsetting you. Please ask @' + bot_owner_name + ' for help.'); // Tweet a request for user to contact Bot Owner
 				} else if (sad_words_list.indexOf(tweet_array[i]) != -1) { // If a sad word is in the tweet
 					var feel_better_text = randomSaying(feel_better_bot_list);
+					console.log('Someone needs cheering up.');
 					tweetIt('@' + from + ' ' + feel_better_text); // Tweet to cheer the user up
 				} else if (proud_words_list.indexOf(tweet_array[i]) != -1) { // If a proud word is in the tweet
 					var proud_text = randomSaying(proud_bot_list);
+					console.log('Someone did something awesome.');
 					tweetIt('@' + from + ' ' + proud_text); // Tweet to be proud of the user
 				}
 			}
