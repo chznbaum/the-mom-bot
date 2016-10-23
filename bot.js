@@ -115,7 +115,9 @@ var bad_words_list = require('badwords/array'); // Include Bad Words package
 for (k = 0; k < bad_words_list.length; k++) {
 	bad_words_list[k] = bad_words_list[k].toLowerCase(); // Transform Bad Words list to all lowercase
 }
-// Replace below with var T = new Twit(config); to test locally
+// Uncomment below to test locally
+//var T = new Twit(config);
+// Comment out below var T to test locally
 var T = new Twit({
 	consumer_key: process.env.CONSUMER_KEY,
 	consumer_secret: process.env.CONSUMER_SECRET,
@@ -141,7 +143,7 @@ function tweetEvent(eventMsg) { // Function to run on each tweet in the stream
 				tweetIt('@' + from + ' ' + disappointed_text); // Bot tweets her disappointment
 			}
 		}
-		if (reply_to !== null && reply_to === 'bot_screen_name') { // If the tweet was @reply to Bot
+		if (reply_to !== null && reply_to === bot_screen_name) { // If the tweet was @reply to Bot
 			for (var j = 0; j < unfollow_words_list.length; j++) { // For each word in the unfollow list
 				if (text.indexOf(unfollow_words_list[j]) != -1) { // If an unfollow word is in the tweet
 					var unfollow_text = randomSaying(unfollow_bot_list);
@@ -156,14 +158,14 @@ function tweetEvent(eventMsg) { // Function to run on each tweet in the stream
 				}
 			}
 			for (var l = 0; l < tweet_array.length; l++) { // For each word in the tweet
-				if ('stop'.indexOf(tweet_array[i]) != -1) { // If 'stop' is in the tweet
+				if ('stop'.indexOf(tweet_array[l]) != -1) { // If 'stop' is in the tweet
 					console.log('Someone\'s having a problem.');
 					tweetIt('@' + from + ' ' + bot_name + ' seems to be upsetting you. Please ask @' + bot_owner_name + ' for help.'); // Tweet a request for user to contact Bot Owner
-				} else if (sad_words_list.indexOf(tweet_array[i]) != -1) { // If a sad word is in the tweet
+				} else if (sad_words_list.indexOf(tweet_array[l]) != -1) { // If a sad word is in the tweet
 					var feel_better_text = randomSaying(feel_better_bot_list);
 					console.log('Someone needs cheering up.');
 					tweetIt('@' + from + ' ' + feel_better_text); // Tweet to cheer the user up
-				} else if (proud_words_list.indexOf(tweet_array[i]) != -1) { // If a proud word is in the tweet
+				} else if (proud_words_list.indexOf(tweet_array[l]) != -1) { // If a proud word is in the tweet
 					var proud_text = randomSaying(proud_bot_list);
 					console.log('Someone did something awesome.');
 					tweetIt('@' + from + ' ' + proud_text); // Tweet to be proud of the user
@@ -176,7 +178,7 @@ function followed(eventMsg) { // Function to run on follow event
 	console.log('Someone followed the bot.');
 	var name = eventMsg.source.name; // Who followed
 	var follower_screen_name = eventMsg.source.screen_name; // Follower's screen name
-	if (follower_screen_name !== 'bot_screen_name') { // If follower is not Bot
+	if (follower_screen_name !== bot_screen_name) { // If follower is not Bot
 		var thank_you = randomSaying(thank_you_list)
 		tweetIt('@' + follower_screen_name + ' ' + thank_you); // Tweet a thank you expression
 		T.post('friendships/create', { screen_name: follower_screen_name }, function(err, data, response) { // Follow the user back
