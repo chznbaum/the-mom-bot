@@ -173,6 +173,7 @@ function tweetEvent(eventMsg) { // Function to run on each tweet in the stream
 	}
 }
 function followed(eventMsg) { // Function to run on follow event
+	console.log('Someone followed the bot.');
 	var name = eventMsg.source.name; // Who followed
 	var follower_screen_name = eventMsg.source.screen_name; // Follower's screen name
 	if (follower_screen_name !== 'bot_screen_name') { // If follower is not Bot
