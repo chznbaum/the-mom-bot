@@ -118,7 +118,7 @@ for (k = 0; k < bad_words_list.length; k++) {
 // Uncomment below to test locally
 //var T = new Twit(config);
 // Comment out below var T to test locally
-var T = new Twit({
+var T = new Twit(module.exports = {
 	consumer_key: process.env.CONSUMER_KEY,
 	consumer_secret: process.env.CONSUMER_SECRET,
 	access_token: process.env.ACCESS_TOKEN,
