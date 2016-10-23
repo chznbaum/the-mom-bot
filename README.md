@@ -10,7 +10,7 @@ To install this project to make your own Twitter Bot:
 4. Go to [Twitter Dev](https://dev.twitter.com) and click on "Manage Your Apps" (in the footer). Sign in as your bot and click "Create New App".
 5. Enter a name and description for your bot, as well as a website, which can be a link to your bot repository on GitHub. Read the Twitter Developer Agreement and check it off, then click "Create your Twitter application". ![Create an Application](./images/create_an_application.jpg)
 6. When your Twitter app pulls up, switch to the "Keys and Access Tokens" tab. Make note of the Consumer Key (API Key) and Consumer Secret (API Secret). Under "Your Access Token", click to generate your Access Token and Access Token Secret. If your bot is ever compromised, you will want to regenerate these keys as well as the Consumer Key and Secret. ![Keys and Access Tokens](./images/keys_and_access_tab.jpg)
-7. Create a `config.js` file in the root of this project's directory. This will allow you to test your project locally. In the `bot.js` file, there is a section to uncomment and one to replace if you wish to test it locally. Insert your bot account's Twitter API keys like this:
+7. Create a `config.js` file in the root of this project's directory. Insert your bot account's Twitter API keys like this:
 
     ```javascript
     module.exports = {
@@ -28,46 +28,54 @@ To install this project to make your own Twitter Bot:
     ```
 
 9. In the `bot.js` file, change the `bot_name` variable value to your bot's name (like Mom Bot), the `bot_screen_name` variable value to your bot's Twitter handle, and the `bot_owner_name` variable value to your own primary Twitter handle.
-10. Create a [Heroku](https://heroku.com) account if you don't already have one. In your dashboard, create a new app, calling it whatever you like.
-11. In your terminal, download the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line) if you haven't already. Log in to your account by entering the following into your terminal and following the prompts:
+10. Commit and push your changes to your forked repository.
+
+    ```bash
+    git add .
+    git commit -m "add config.js and api keys"
+    git push origin master
+    ```
+
+11. In your terminal, create and checkout a local branch with some `<BRANCH-NAME>`. You will remove `config.js` from the `.gitignore` file on this branch use this branch to push to Heroku.
+
+    ```bash
+    git checkout -b <BRANCH-NAME>
+    ```
+
+12. Create a [Heroku](https://heroku.com) account if you don't already have one. In your dashboard, create a new app, calling it whatever you like.
+13. In your terminal, download the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line) if you haven't already. Log in to your account by entering the following into your terminal and following the prompts:
 
     ```bash
     heroku login
     ```
 
-12. Connect your directory with your Heroku app:
+14. Connect your directory with your Heroku app:
 
     ```bash
-    heroku git:remote -a YOUR-APP-NAME
+    heroku git:remote -a <YOUR-APP-NAME>
     ```
 
-13. Deploy your application to Heroku:
+15. Deploy your application to Heroku:
 
     ```bash
     git add .
     git commit -am "add project files"
-    git push heroku master
+    git push heroku <BRANCH-NAME>
     ```
 
-14. Include your authentication variables as environmental variables in your Heroku installation. You can do this in the terminal like this:
-
-    ```bash
-    heroku config:set CONSUMER_KEY=... CONSUMER_SECRET=... ACCESS_TOKEN=... ACCESS_TOKEN_SECRET=...
-    ```
-
-14. By default, Heroku apps use [web dynos](https://devcenter.heroku.com/articles/dynos). A Procfile has been included to instruct a worker dyno to be used to run your app instead. As an extra precaution, you can correct the dynos used in your terminal like this:
+16. By default, Heroku apps use [web dynos](https://devcenter.heroku.com/articles/dynos). A Procfile has been included to instruct a worker dyno to be used to run your app instead. As an extra precaution, you can correct the dynos used in your terminal like this:
 
     ```bash
     heroku ps:scale web=0 worker=1
     ```
 
-15. You may need to restart your worker dyno in order to get your app up and running. Do that like this:
+17. You may need to restart your worker dyno in order to get your app up and running. Do that like this:
 
     ```bash
     heroku restart worker.1
     ```
 
-16. A few additional tools to check on your app:
+18. A few additional tools to check on your app:
 
     ```bash
     heroku ps // Checks the status of your dynos
@@ -78,10 +86,22 @@ To install this project to make your own Twitter Bot:
 
 ### Using the Existing Bot
 To use the existing bot, a user can simply follow [Mom Bot](https://twitter.com/the_mother_bot) on Twitter. Mom Bot will respond to the follow request and follow the user back.
+![Mom Bot Follow Response](./images/follow_screen.jpg)
 
 From there, Mom Bot will scan tweets in the stream for use of bad words. If a tweet contains a bad word, Mom Bot will respond with an @reply to the tweeter.
+![Mom Bot Bad Word Response](./images/bad_word_screen.jpg)
 
-Mom Bot will also scan for @replies directed at Mom Bot. If a user tweets an @reply that includes a sad word, Mom Bot will tweet an @reply to the user to cheer them up. If a user tweets an @reply that includes a proud or happy word, Mom Bot will tweet an @reply to the user to express her pride in the user.
+Mom Bot will also scan for @replies directed at Mom Bot. If a user tweets an @reply that includes a sad word, Mom Bot will tweet an @reply to the user to cheer them up.
+![Mom Bot Cheer Up Response](./images/cheer_up_screen.jpg)
+
+If a user tweets an @reply that includes a proud or happy word, Mom Bot will tweet an @reply to the user to express her pride in the user.
+![Mom Bot Proud Response](./images/proud_screen.jpg)
+
+If a user tweets an @reply that includes a phrase like "go away" or "leave me alone", Mom Bot will respond to the user and unfollow them.
+![Mom Bot Unfollow Response](./images/unfollow_screen.jpg)
+
+If a user includes the word "stop" in an @reply to Mom Bot, she will tweet a request to have the bot owner help out, for example, if there is a bug or the bot won't unfollow as expected.
+![Mom Bot Stop Response](./images/stop_screen.jpg)
 
 ### Using a Custom Bot
 Once your bot is installed, you can dig into the code to add or change functionality. This bot uses the `twit` NPM package to manipulate tweets and streams. Be sure to review the [documentation](https://github.com/ttezel/twit) for that project prior to making substantial changes.

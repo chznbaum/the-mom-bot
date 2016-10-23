@@ -1,7 +1,6 @@
 console.log('The bot is starting...');
 var Twit = require('twit'); // Include Twit Package
-// Uncomment below to test on your local system
-// var config = require('./config'); // Include authentication credentials
+var config = require('./config'); // Include authentication credentials
 var bot_name = 'Mom Bot';
 var bot_screen_name = 'the_mother_bot';
 var bot_owner_name = 'otherconsolelog';
@@ -115,15 +114,7 @@ var bad_words_list = require('badwords/array'); // Include Bad Words package
 for (k = 0; k < bad_words_list.length; k++) {
 	bad_words_list[k] = bad_words_list[k].toLowerCase(); // Transform Bad Words list to all lowercase
 }
-// Uncomment below to test locally
-//var T = new Twit(config);
-// Comment out below var T to test locally
-var T = new Twit(module.exports = {
-	consumer_key: process.env.CONSUMER_KEY,
-	consumer_secret: process.env.CONSUMER_SECRET,
-	access_token: process.env.ACCESS_TOKEN,
-	access_token_secret: process.env.ACCESS_TOKEN_SECRET
-});
+var T = new Twit(config);
 var stream = T.stream('user'); // Setting up a user stream
 stream.on('tweet', tweetEvent); // Anytime a tweet enters the stream, run tweetEvent
 stream.on('follow', followed); // Anytime a user follows Bot, run followed
