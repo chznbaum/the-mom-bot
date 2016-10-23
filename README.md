@@ -61,6 +61,7 @@ To install this project to make your own Twitter Bot:
     git add .
     git commit -am "add project files"
     git push heroku <BRANCH-NAME>
+    git push heroku <BRANCH-NAME>:master
     ```
 
 16. By default, Heroku apps use [web dynos](https://devcenter.heroku.com/articles/dynos). A Procfile has been included to instruct a worker dyno to be used to run your app instead. As an extra precaution, you can correct the dynos used in your terminal like this:
