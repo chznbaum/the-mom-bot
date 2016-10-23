@@ -116,7 +116,7 @@ for (k = 0; k < bad_words_list.length; k++) {
 	bad_words_list[k] = bad_words_list[k].toLowerCase(); // Transform Bad Words list to all lowercase
 }
 // Replace below with var T = new Twit(config); to test locally
-var T = new Twit(module.exports = {
+var T = new Twit({
 	consumer_key: process.env.CONSUMER_KEY,
 	consumer_secret: process.env.CONSUMER_SECRET,
 	access_token: process.env.ACCESS_TOKEN,
