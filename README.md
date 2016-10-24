@@ -60,7 +60,6 @@ To install this project to make your own Twitter Bot:
     ```bash
     git add .
     git commit -am "add project files"
-    git push heroku <BRANCH-NAME>
     git push heroku <BRANCH-NAME>:master
     ```
 
